@@ -7,12 +7,15 @@
   - [x] buy and furbish server
   - [x] setup private chain (http://paratii-chain.gerbrandy.com/)
   - [x] set up front end (http://paratii.gerbrandy.com/)
-  - [ ] automatize deployment
-  - [ ] set up staging server
-  - [ ] continuous integration
+  - [x] set up staging server
+  - [x] continuous integration
+  - [x] continuous deployment
+
+- [ ] Set up meteor routes and basic templates
+  - [ ] define routes and templates [issue #3](../../issues/3)
 		
 - [ ] 	graphical basic design of the frontend	
-  - [ ]	finish design
+  - [ ]	finish design (#
   - [ ]	implement stylesheets, classes, icons, basic html structure
 
 - [ ] data management (i.e. a management interface to view and edit collected data)
