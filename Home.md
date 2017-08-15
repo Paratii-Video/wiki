@@ -22,7 +22,7 @@ The [Paratii Blueprint](LINK BLUEPRINT) is a helpful resource for those seeking 
 
 ## :speech_balloon: Community
 
-Our communication is open source too, and we're always happy to engage in any constructive discussion:
+Our communication is open source too. Wwe're always happy to engage in any constructive discussion:
 
 * [paratii.video](http://paratii.video)
 * [Gitter](https://gitter.im/Paratii-Video/Lobby)
