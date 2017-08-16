@@ -18,7 +18,7 @@ Essential components for the materialisation of this vision are:
 * Paratii Open RTB API (TBS)
 * Additional modules (TBS)
 
-The [Paratii Blueprint](LINK BLUEPRINT) is a helpful resource for those seeking a high level overview of the system and the business case for its implementation.
+The [Paratii Blueprint](https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint) is a helpful resource for those seeking a high level overview of the system and the business case for its implementation.
 
 ## :speech_balloon: Community
 
