@@ -16,7 +16,7 @@ Paratii Player 1.0 - please check back for changes.*
 
 ## Content			
 
-* I. Introduction
+* [[I. Introduction|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#i-introduction]]
  * I.a. A novel opportunity in video distribution	
   *   Value proposition 1: in-browser peer-to-peer filesharing	
   *   Value proposition 2: microeconomic fairness to all key network participants	
