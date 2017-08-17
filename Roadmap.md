@@ -1,3 +1,3 @@
 # Road map
 
-See [issue #11](../issues/11)
+See our [PM board](https://github.com/Paratii-Video/paratii-player/projects/1) or [longer-term milestones](https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map).
