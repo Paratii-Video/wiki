@@ -4,7 +4,7 @@
 _Diego di Caro diego@paratii.video, Jelle Gerbrandy jelle@paratii.video, 
 Paulo Perez paulo@paratii.video, Felipe Sant’Ana felipe@paratii.video_
 
-_[paratii.video](www.paratii.video)_ | _August 2017_ | _version 0.2_
+_[paratii.video](www.paratii.video)_ | _August 2017_ | _version 0.2_ | _**under adjusments**_
 
 ## Abstract				
 
