@@ -9,7 +9,7 @@ Hence, we're building a video player. One that ties access to different open pro
 * Attention marketers (e.g. advertisers, media investors) can bid on media space via an order book, and verify audience measurements in a trustless manner.
 
 ## :mag_right: Overview
-Paratii is an early stage endeavour and a socioeconomic experiment. Its aim is to deliver an embeddable application that interfaces with an underlying [DSN](https://filecoin.io/filecoin.pdf), manipulates (multiplexes) streams as required and displays content accordingly, without the end user ever needing to know what a blockchain is. See our [Roadmap](https://github.com/Paratii-Video/paratii-player/projects/1) for information on development milestones and timeline. A longer-term vision can be found [here](https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map).
+Paratii is an early stage endeavour and a socioeconomic experiment. Its aim is to deliver an embeddable application that interfaces with an underlying [DSN](https://filecoin.io/filecoin.pdf), manipulates (multiplexes) streams as required and displays content accordingly, without the end user ever needing to know what a blockchain is. See our [roadmap](https://github.com/Paratii-Video/paratii-player/projects/1) for information on development milestones and timeline. A longer-term vision can be found [here](https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map).
 
 Essential components for the materialisation of this vision are:
 
