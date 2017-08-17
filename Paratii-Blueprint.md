@@ -403,19 +403,19 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 ## **IX. References**
 
-1 - Statista. **Digital video advertising revenue worldwide from 2015 to 2021, by device (in million U.S. dollars)**. **2017**. URL: [www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide](https://www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide) 
+1 - Statista. **Digital video advertising revenue worldwide from 2015 to 2021, by device (in million U.S. dollars)**. 2017. URL: [www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide](https://www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide) 
 
 2 - There are three main business models when it comes to video on demand services: advertising-supported video on demand (AVOD), where advertising is included as part of the content offered (i.e: Youtube); transactional video on demand (TVOD), on which content is payed for whenever it’s to be watched or rented (think Apple’s iTunes); and subscription video on demand (SVOD), on which a periodic fee is charged to allow retrieval from a catalog of content (for example, Netflix).
 
-3 - WONG, Joon Ian. Quartz. **The internet has been quietly rewired, and video is the reason why. **2016. URL: [www.qz.com/742474/how-streaming-video-changed-the-shape-of-the-internet](http://www.qz.com/742474/how-streaming-video-changed-the-shape-of-the-internet) 
+3 - WONG, Joon Ian. Quartz. **The internet has been quietly rewired, and video is the reason why.** 2016. URL: [www.qz.com/742474/how-streaming-video-changed-the-shape-of-the-internet](http://www.qz.com/742474/how-streaming-video-changed-the-shape-of-the-internet) 
 
 4 - EDDY, Nathan. **Google, Facebook Dominate Digital Ad Revenue.** 2016. URL: [www.eweek.com/small-business/google-facebook-dominate-digital-ad-revenue.html](http://www.eweek.com/small-business/google-facebook-dominate-digital-ad-revenue.html)
 
 5 - BitTorrent. URL: [http://www.bitmedianetwork.com/](http://www.bitmedianetwork.com/)
 
-6 - Statista.** Number of Netflix streaming subscribers worldwide from 3rd quarter 2011 to 3rd quarter 2016 (in millions**). URL: [www.statista.com/statistics/250934](http://www.statista.com/statistics/250934)
+6 - Statista. **Number of Netflix streaming subscribers worldwide from 3rd quarter 2011 to 3rd quarter 2016 (in millions).** URL: [www.statista.com/statistics/250934](http://www.statista.com/statistics/250934)
 
-7 - Protocol Labs. **The JavaScript implementation of the libp2p networking stack. **2017. [https://github.com/libp2p/js-libp2p ](https://github.com/libp2p/js-libp2p)
+7 - Protocol Labs. **The JavaScript implementation of the libp2p networking stack.** 2017. [https://github.com/libp2p/js-libp2p ](https://github.com/libp2p/js-libp2p)
 
 8 -  [https://github.com/webrtc/samples](https://github.com/webrtc/samples)
 
@@ -423,7 +423,7 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 10 - CHARLES, Ryan. **What is Yours?** 2017. URL: [https://stories.yours.org/what-is-yours-cefebc322ce3](https://stories.yours.org/what-is-yours-cefebc322ce3) 
 
-11 - Brave Software. **Basic Attention Token (BAT) - Blockchain Based Digital Advertising. **2017. URL: [www.basicattentiontoken.org/BasicAttentionTokenWhitePaper-4.pdf](http://www.basicattentiontoken.org/BasicAttentionTokenWhitePaper-4.pdf) 
+11 - Brave Software. **Basic Attention Token (BAT) - Blockchain Based Digital Advertising.** 2017. URL: [www.basicattentiontoken.org/BasicAttentionTokenWhitePaper-4.pdf](http://www.basicattentiontoken.org/BasicAttentionTokenWhitePaper-4.pdf) 
 
 12 -  GOLDIN, Mike; SOLEIMANI, Ameen; YOUNG, James. **The AdChain Registry.** 2017. URL: [https://adtoken.com/white-paper.pdf/](https://adtoken.com/white-paper.pdf/)
 
@@ -431,7 +431,7 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 14 - Storj cites costs of $0.015$/GB a month.
 
-15 - @dantheman. **Brief Update on Reputation Score. **2016.** **[https://steemit.com/steemit/@dantheman/brief-update-on-reputation-score](https://steemit.com/steemit/@dantheman/brief-update-on-reputation-score)
+15 - @dantheman. **Brief Update on Reputation Score.** 2016. URL:[https://steemit.com/steemit/@dantheman/brief-update-on-reputation-score](https://steemit.com/steemit/@dantheman/brief-update-on-reputation-score)
 
 16 - [https://stackoverflow.com/help/privileges](https://stackoverflow.com/help/privileges) 
 
@@ -449,7 +449,7 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 23 - [https://github.com/livepeer/lpms](https://github.com/livepeer/lpms) 
 
-24 -   ANA and White Ops. **The Bot Baseline: Fraud in Digital Advertising**. 2014. URL: [http://www.ana.net/content/show/id/botfraud-2016](http://www.ana.net/content/show/id/botfraud-2016) 
+24 -   ANA and White Ops. **The Bot Baseline: Fraud in Digital Advertising.** 2014. URL: [http://www.ana.net/content/show/id/botfraud-2016](http://www.ana.net/content/show/id/botfraud-2016) 
 
 25 -  VRANICA, S.. **A ‘Crisis’ in Online Ads: One-Third of Traffic Is Bogus.** 2014. URL: [www.online.wsj.com/news/articles/ SB10001424052702304026304579453253860786362](http://www.online.wsj.com/news/articles/)
 
@@ -457,15 +457,15 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 27 - HOHENBERGER, Susan; MYERS, Steven; PASS, Rafael; SHELAT, Abhi. 2016. **Anonize: A Large-Scale Anonymous Survey System.** URL: [https://anonize.org/assets/anonize-oak-camera.pdf](https://anonize.org/assets/anonize-oak-camera.pdf); [https://gitlab.com/abhvious/anonize2](https://gitlab.com/abhvious/anonize2) 
 
-28 - The fact that much of our user behavior is registered on the blockchain, and thereby rendered public, presents some obvious privacy issues (*see section VII.c*).
+28 - The fact that much of our user behavior is registered on the blockchain, and thereby rendered public, presents some obvious privacy issues (_see section VII.c_).
 
-29 - GOLDIN, Mike; SOLEIMANI, Ameen; YOUNG, James.**The AdChain Registry.** 2017. URL: [https://adtoken.com/white-paper.pdf](https://adtoken.com/white-paper.pdf) 
+29 - GOLDIN, Mike; SOLEIMANI, Ameen; YOUNG, James. **The AdChain Registry.** 2017. URL: [https://adtoken.com/white-paper.pdf](https://adtoken.com/white-paper.pdf) 
 
 30 - See *"Basic Attention Metric"* @ [11]
 
-31 - IAB. **OpenRTB Dynamic Native Ads API Specification. **2015. URL: [https://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf](https://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf); 
+31 - IAB. **OpenRTB Dynamic Native Ads API Specification.** 2015. URL: [https://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf](https://www.iab.net/media/file/OpenRTB-Native-Ads-Specification-1_0-Final.pdf); 
 
-32 - IAB. **Digital Video Ad Serving Template (VAST) 4.0. **2016. URL: [https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-4-0/](https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-4-0/)
+32 - IAB. **Digital Video Ad Serving Template (VAST) 4.0.** 2016. URL: [https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-4-0/](https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-4-0/)
 
 33 - [https://www.nyiax.com](https://www.nyiax.com) 
 
@@ -483,11 +483,11 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 40 - LARIMER, Danie; SCOTT, Ned; ZAVGORODNEV, Valentine; JOHNSON, Benjamin; CALFEE,  James; VANDEBERG, Michae.  **Steem: an incentivized, blockchain-based social media platform.** 2016. URL: [https://steem.io/SteemWhitePaper.pdf](https://steem.io/SteemWhitePaper.pdf) 
 
-41 - OLPINKSI, [Maciej](https://blog.userfeeds.io/@maciejolpinski?source=post_header_lockup). **On blockchains, ‘fake Trump news’ and uberization of Facebook. **2016. URL: www.blog.userfeeds.io/on-blockchains-fake-trump-news-and-uberization-of-facebook-b7a74fe5c371
+41 - OLPINKSI, [Maciej](https://blog.userfeeds.io/@maciejolpinski?source=post_header_lockup). **On blockchains, ‘fake Trump news’ and uberization of Facebook.** 2016. URL: www.blog.userfeeds.io/on-blockchains-fake-trump-news-and-uberization-of-facebook-b7a74fe5c371
 
-42 - WILKINSON, Shawn; BOSHEVSKI, Tome; BRANDOFF,  Josh; PRESTWICH,  James; HALL, Gordon; GERBES, Patrick; HUTCHINS, Philip; POLLARD, Chris. **Storj - A Peer-to-Peer Cloud Storage Network. **2016. URL:  [https://storj.io/storj.pdf](https://storj.io/storj.pdf) 
+42 - WILKINSON, Shawn; BOSHEVSKI, Tome; BRANDOFF,  Josh; PRESTWICH,  James; HALL, Gordon; GERBES, Patrick; HUTCHINS, Philip; POLLARD, Chris. **Storj - A Peer-to-Peer Cloud Storage Network.** 2016. URL:  [https://storj.io/storj.pdf](https://storj.io/storj.pdf) 
 
-43 -  VORICK, David; CHAMPINE, Luke. **Sia: Simple Decentralized Storage. **2014. URL: [www.sia.tech/whitepaper.pdf](https://www.sia.tech/whitepaper.pdf) 
+43 -  VORICK, David; CHAMPINE, Luke. **Sia: Simple Decentralized Storage.** 2014. URL: [www.sia.tech/whitepaper.pdf](https://www.sia.tech/whitepaper.pdf) 
 
 44 -  [https://maidsafe.net/](https://maidsafe.net/)
 
@@ -495,9 +495,9 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 46 - [https://gist.github.com/zelig/74b3486bcd5523a0b61e12d804d3c00d](https://gist.github.com/zelig/74b3486bcd5523a0b61e12d804d3c00d)
 
-47 -  BEN-SASSON; Eli; CHIESA, Alessandro; GARMAN, Christina; GREEN, Matthew; MIERST, Ian; TROMER, Eran; VIRZA, Madars. **Zerocash: Decentralized Anonymous Payments from Bitcoin. **2014. URL: http://zerocash-project.org/media/pdf/zerocash-extended-20140518.pdf
+47 -  BEN-SASSON; Eli; CHIESA, Alessandro; GARMAN, Christina; GREEN, Matthew; MIERST, Ian; TROMER, Eran; VIRZA, Madars. **Zerocash: Decentralized Anonymous Payments from Bitcoin.** 2014. URL: http://zerocash-project.org/media/pdf/zerocash-extended-20140518.pdf
 
-48 - CRAIB, Richard. **Encrypted Data For Efficient Markets. **2016. URL: [https://medium.com/numerai/encrypted-data-for-efficient-markets-fffbe9743ba8#.cdj18pmng](https://medium.com/numerai/encrypted-data-for-efficient-markets-fffbe9743ba8#.cdj18pmng)
+48 - CRAIB, Richard. **Encrypted Data For Efficient Markets.** 2016. URL: [https://medium.com/numerai/encrypted-data-for-efficient-markets-fffbe9743ba8#.cdj18pmng](https://medium.com/numerai/encrypted-data-for-efficient-markets-fffbe9743ba8#.cdj18pmng)
 
 49 -  JENTZSCH, Christoph.**The History of The Dao and Lessons Learned.** 2016. URL: [https://blog.slock.it/the-history-of-the-dao-and-lessons-learned-d06740f8cfa5](https://blog.slock.it/the-history-of-the-dao-and-lessons-learned-d06740f8cfa5) 
 
