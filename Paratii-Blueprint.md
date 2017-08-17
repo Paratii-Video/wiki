@@ -17,29 +17,29 @@ Paratii Player 1.0 - please check back for changes.*
 ## Content			
 
 * [[I. Introduction|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#i-introduction]]
- * I.a. A novel opportunity in video distribution	
-  *   Value proposition 1: in-browser peer-to-peer filesharing	
-  *   Value proposition 2: microeconomic fairness to all key network participants	
- *   I.b. The vision of Paratii	
-* II. The *paratii* token	
-* III. Crowdsourcing the video distribution stack	
-*   III.a. Decentralised Storage Networks	
-*   III.b. Reputation and Governance	
-*   III.c. *Proof of Quality*
-*   III.d. Content Policy & Rights	
-*   III.e. Multiplexing	
-*   IV. *Proof of View*	
-*   V. Selling Advertisements	
-*   VI. The economics of Paratii	
-*   VI.a. Issuance Model	
-*   VI.b. Distributing *paratii* - who earns what	
-*   VI.c. A *communication market*	
-*   VII. Implementation	
-*   VII.a. Road Map	
-*   VII.b. Paratii Foundation and capital allocation	
-*   VII.c. Risks & Challenges	
-*   VIII. Conclusion	
-*   IX. References	
+ * [[I.a. A novel opportunity in video distribution|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]	
+  *   [[Value proposition 1: in-browser peer-to-peer filesharing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]
+  *   [[Value proposition 2: microeconomic fairness to all key network participants|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]	
+ *   [[I.b. The vision of Paratii|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ib-the-vision-of-paratii]]
+* II. [[The *paratii* token|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ii-the-paratii-token]]	
+* III. [[Crowdsourcing the video distribution stack|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iii-crowdsourcing-the-video-distribution-stack]]
+*  [[III.a. Decentralised Storage Networks|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiia-decentralised-storage-networks]]
+*  [[III.b. Reputation and Governance|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiib-reputation-and-governance]]	
+*  [[III.c. *Proof of Quality*|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiic-proof-of-quality]]
+*  [[III.d. Content Policy & Rights|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiid-content-policy--rights]]
+*  [[III.e. Multiplexing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiie-multiplexing]]
+*  [[IV. *Proof of View*|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iv-proof-of-view]]	
+*  [[V. Selling Advertisements|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#v-selling-advertisements]]
+*  [[VI. The economics of Paratii|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vi-the-economics-of-paratii]]
+*  [[VI.a. Issuance Model|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#via-issuance-model]]	
+*  [[VI.b. Distributing *paratii* - who earns what|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vib-distributing-paratii---who-earns-what]]
+*  [[VI.c. A *communication market*|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vic-a-communication-market]]	
+*  [[VII. Implementation|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vii-implementation]]
+*  [[VII.a. Road Map|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map]]
+*  [[VII.b. Paratii Foundation and capital allocation|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viib-paratii-foundation-and-capital-allocation]]
+*  [[VII.c. Risks & Challenges|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viic-risks--challenges]]
+*  [[VIII. Conclusion|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viii-conclusion]]
+*  [[IX. References|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ix-references]]	
 
 ## **I. Introduction**
 
