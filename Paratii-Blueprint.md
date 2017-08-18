@@ -17,27 +17,27 @@ Paratii Player 1.0 - please check back for changes.*
 ## Content			
 
 * [[I. Introduction|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#i-introduction]]
- * [[I.a. A novel opportunity in video distribution|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]  	
-  *   [[First value proposition: in-browser peer-to-peer filesharing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]
-  *   [[Second value proposition: microeconomic fairness to all key network participants|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]	
- *   [[I.b. The vision of Paratii|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ib-the-vision-of-paratii]]
-* [[II. The _paratii_ token|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ii-the-paratii-token]]	
+  * [[I.a. A novel opportunity in video distribution|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]  	
+    * [[First value proposition: in-browser peer-to-peer filesharing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]
+    * [[Second value proposition: microeconomic fairness to all key network participants|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ia-a-novel-opportunity-in-video-distribution]]	
+  *  [[I.b. The vision of Paratii|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ib-the-vision-of-paratii]]
+* [[II. The paratii token|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ii-the-paratii-token]]	
 * [[III. Crowdsourcing the video distribution stack|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iii-crowdsourcing-the-video-distribution-stack]]
-*  [[III.a. Decentralised Storage Networks|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiia-decentralised-storage-networks]]
-*  [[III.b. Reputation and Governance|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiib-reputation-and-governance]]	
-*  [[III.c. _Proof of Quality_|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiic-proof-of-quality]]
-*  [[III.d. Content Policy & Rights|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiid-content-policy--rights]]
-*  [[III.e. Multiplexing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiie-multiplexing]]
-*  [[IV. _Proof of View_|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iv-proof-of-view]]	
+  *  [[III.a. Decentralised Storage Networks|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiia-decentralised-storage-networks]]
+  *  [[III.b. Reputation and Governance|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiib-reputation-and-governance]]	
+  *  [[III.c. Proof of Quality|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiic-proof-of-quality]]
+  *  [[III.d. Content Policy & Rights|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiid-content-policy--rights]]
+  *  [[III.e. Multiplexing|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iiie-multiplexing]]
+*  [[IV. Proof of View|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#iv-proof-of-view]]	
 *  [[V. Selling Advertisements|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#v-selling-advertisements]]
 *  [[VI. The economics of Paratii|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vi-the-economics-of-paratii]]
-*  [[VI.a. Issuance Model|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#via-issuance-model]]	
-*  [[VI.b. Distributing _paratii_ - who earns what|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vib-distributing-paratii---who-earns-what]]
-*  [[VI.c. A _communication market_|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vic-a-communication-market]]	
+   *  [[VI.a. Issuance Model|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#via-issuance-model]]	
+   *  [[VI.b. Distributing paratii - who earns what|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vib-distributing-paratii---who-earns-what]]
+   *  [[VI.c. A communication market|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vic-a-communication-market]]	
 *  [[VII. Implementation|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#vii-implementation]]
-*  [[VII.a. Road Map|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map]]
-*  [[VII.b. Paratii Foundation and capital allocation|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viib-paratii-foundation-and-capital-allocation]]
-*  [[VII.c. Risks & Challenges|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viic-risks--challenges]]
+   *  [[VII.a. Road Map|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viia-road-map]]
+   *  [[VII.b. Paratii Foundation and capital allocation|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viib-paratii-foundation-and-capital-allocation]]
+   *  [[VII.c. Risks & Challenges|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viic-risks--challenges]]
 *  [[VIII. Conclusion|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#viii-conclusion]]
 *  [[IX. References|https://github.com/Paratii-Video/paratii-player/wiki/Paratii-Blueprint#ix-references]]	
 
@@ -365,6 +365,8 @@ Incentivized file sharing and distribution, a central function for Paratii, also
 
 * **Atlantis Release (Full-fledged version)** - Atlantis is a release focused on scaling the *communication market* and further decentralizing the economic gears of the system. A first version of a formal governance mechanism will be implemented as a notification system for registered users to decide on minor upgrades and tweaking of internal parameters. An API implementing the OpenRTB standard will allow for seamless integration with DSPs and increase the competitivity of Paratii to *attention marketers*. Attention payers (or users) will be compensated with the deployment of an evolving recommendation system that will compare (and potentially mix) open algorithms developed "in-house" to components of third-party pluggable engines. Automatized “bounty hunting” is to be put in place and ever refining contribution rewards’ parameters should keep the network’s growth traction.
 
+*IMG ROADMAP*
+
 ### VII.b. Paratii Foundation and capital allocation
 
 The Paratii Foundation, a nonprofit entity, will be responsible for the development of the Paratii ecosystem and software, up to the moment when both are fully autonomous. Its functions include the management of daily financial operations and digital asset management; recruitment and hiring of personnel or external contractors; auditing; legal and taxation research and operation; fostering the growth of a development community; running bug bounty programs; besides promoting and marketing Paratii. More broadly, the foundation will advocate for transparency, disintermediation and the power to transform individuals through visual storytelling. 
@@ -403,7 +405,7 @@ In the mid term, even giants of the current siloed landscape of digital content 
 
 ## **IX. References**
 
-1 - Statista. **Digital video advertising revenue worldwide from 2015 to 2021, by device (in million U.S. dollars)**. 2017. URL: [www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide](https://www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide) 
+[^1]: - Statista. **Digital video advertising revenue worldwide from 2015 to 2021, by device (in million U.S. dollars)**. 2017. URL: [www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide](https://www.statista.com/statistics/456747/digital-video-advertising-revenue-device-digital-market-outlook-worldwide) 
 
 2 - There are three main business models when it comes to video on demand services: advertising-supported video on demand (AVOD), where advertising is included as part of the content offered (i.e: Youtube); transactional video on demand (TVOD), on which content is payed for whenever it’s to be watched or rented (think Apple’s iTunes); and subscription video on demand (SVOD), on which a periodic fee is charged to allow retrieval from a catalog of content (for example, Netflix).
 
