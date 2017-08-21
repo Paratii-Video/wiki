@@ -67,11 +67,11 @@ Documentation can fall behind when things are advancing fast. If you can’t fin
 
 ## :space_invader: Start playing
 
-1. Fork this repository.
-2. Clone the fork to your local machine.
-3.Create a new branch (e.g. issue-6) where to make your changes and commit them (check if tests pass).
-4.Push the branch to the fork (e.g. git push me issue-6).
-5.Open a PR from the new branch to the original fork's master branch.
+* 1. Fork this repository.
+* 2. Clone the fork to your local machine.
+* 3. Create a new branch (e.g. issue-6) where to make your changes and commit them (check if tests pass).
+* 4. Push the branch to the fork (e.g. git push me issue-6).
+* 5. Open a PR from the new branch to the original fork's master branch.
 
 
 If your contribution takes the form of mental resources and thoughstreams solely, it’ll be a honor to receive you on [gitter](https://gitter.im/Paratii-Video/Lobby).
