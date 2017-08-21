@@ -67,7 +67,7 @@ Documentation can fall behind when things are advancing fast. If you can’t fin
 
 ## :space_invader: Start playing
 
-* 1. Fork this repository.
+* 1. Fork a repository.
 * 2. Clone the fork to your local machine.
 * 3. Create a new branch (e.g. issue-6) where to make your changes and commit them (check if tests pass).
 * 4. Push the branch to the fork (e.g. git push my-handle issue-6).
