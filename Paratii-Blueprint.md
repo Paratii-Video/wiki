@@ -385,6 +385,8 @@ This project was conceived under the patronage of BossaNovaFilms, a Brazilian fi
 
 Roughly, breakdown of initial token allocation is as illustrated by the chart above. Proceedings from any token distribution events will be allocated by the foundation as outlined below.
 
+**2 DIAGRAMS HERE**
+
 The proportions may vary in the occasion of further token distribution events (i.e. the foundation can offer a small percentage of its PTIs to fundraise development of a specific new feature or to acquire original content). Details on the foundation’s governance structure are to be publicized once it is established. It’s creation is driven by guiding principles of FOSS: incentivized collaboration among community members, meritocracy as the determinant factor for projects that rise and gather effort from the community, and free flows of information. As with the code, Paratii is committed to make most of its conversations open source.
 
 ### VII.c. Risks & Challenges
