@@ -50,7 +50,7 @@ If you see opportunities to improve test coverage, or envision an alternative im
 
 To propose things a certain library is capable of accomplishing, describe the envisioned implementation in an issue, and label it `enhancement`. Issues that fall under this type will be labeled as such.
 
-Project maintainers will do their best to look at proposal and engage in discussion as quickly and soundly as possible. It is recommended that you wait for some feedback before spending time/resources writing code for the envisioned implementation.
+We'll do our best to look at proposals and engage in discussion as quickly and soundly as possible. It is recommended that you wait for some feedback before spending time/resources writing code for the envisioned implementation.
 
 
 ## :scroll: Documentation and Translation
