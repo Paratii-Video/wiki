@@ -74,4 +74,4 @@ Documentation can fall behind when things are advancing fast. If you can’t fin
 * 5. Open a PR from the new branch to the original fork's master branch.
 
 
-If your contribution takes the form of mental resources and thoughstreams solely, it’ll be a honor to receive you on [gitter](https://gitter.im/Paratii-Video/Lobby).
+If your contribution takes the form of mental resources and thought streams solely, it’ll be a honor to receive you on [gitter](https://gitter.im/Paratii-Video/Lobby).
