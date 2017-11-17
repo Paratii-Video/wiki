@@ -10,5 +10,5 @@ gitbook serve
 
 Then point your browser at `localhost:4000`
 
-**Note** `book.json` installs a `Mathjax` plugin that enables LaTex rendering wtihin markdown with the usual double dollarsign.
+**Note** `book.json` installs a `Mathjax` plugin that enables LaTex rendering wtihin markdown with the usual double dollar sign.
 $$This will be rendered with LaTex$$
