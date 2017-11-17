@@ -1,8 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
-* [Business Case](Buisiness-Case.md)
-* [High Level Architecture](High-Level-Architecture.md)
+* [Introduction](Introduction.md)
 * [Paratii Protocol](Paratii-Protcol.md)
 * [Recommendation Engines](Recommendation-Engines.md)
 * [Own Tokens](Own-Tokens.md)
