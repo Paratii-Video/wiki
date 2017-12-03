@@ -1,9 +1,10 @@
 # Summary
 
-* [Introduction](Abstract.md)
+* [Absrtact](Abstract.md)
+* [Introduction](Introduction.md)
     * [Business Case](Introduction/Business-Case.md)
-    * [High Level Architecture](Introduction/High-Level-Architecture.md)
 * [The-Paratii Protocol](The-Paratii-Protocol/Introduction.md)
+    * [High Level Architecture](The-Paratii-Protocol/High-Level-Architecture.md)
     * [Protocol Layers](The-Paratii-Protocol/Protocol-Layers.md)
     * [IPFS](The-Paratii-Protocol/IFPS.md)
     * [SWARM](The-Paratii-Protocol/SWARM.md)
