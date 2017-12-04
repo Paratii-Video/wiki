@@ -86,7 +86,7 @@ A registry with information about users: user metadata, upvote/downvote history,
 
 ### VideoStore
 
-The `VideoStore` is a contracts that tracks ownership and prices of videos (be it negative or positive). Buying (i.e. pay-per-view), for example, will register a purchase, and split the money being sent between the `owner` of the video and the [Paratii VideoStore.sol](https://github.com/Paratii-Video/paratii-contracts/blob/master/contracts/paratii/VideoStore.sol). To do this, the user must initiate two transactions:
+The `VideoStore` is a contracts that tracks ownership and prices of videos (be it negative or positive). Buying (i.e. pay-per-view), for example, will register a purchase, and split the money being sent between the `owner` of the video and the [VideoStore.sol](https://github.com/Paratii-Video/paratii-contracts/blob/master/contracts/paratii/VideoStore.sol). To do this, the user must initiate two transactions:
 
 - the client calls `ParatiiToken.approve(ParatiiAvatar.address, price_of_video)` to allows the paratiiAvatar to transfer the price_of_video. (For small transactions, this can be done transparently)
 - the client calls `VideoStore.buyVideo(videoId)`, triggering a number of steps:
