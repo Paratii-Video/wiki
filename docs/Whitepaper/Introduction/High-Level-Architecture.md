@@ -97,6 +97,6 @@ The `VideoStore` is a contracts that tracks ownership and prices of videos (be i
 
 In addition, Paratii currently uses a simple wrapper contract, [SendEther.sol](https://github.com/Paratii-Video/paratii-contracts/blob/master/contracts/paratii/SendEther.sol), that can be used to send Ether, and will log an event that can be read by clients and logged to transaction history.
 
-The [paratii.js](https://github.com/Paratii-Video/paratii-lib https://github.com/Paratii-Video/paratii-lib/blob/master/lib/paratii.js) library is the preferred way for clients to interact with the deployed contracts, offering access to them, wallet functionality, and convenience functions that provide more useful error handling than direct calls to the blockchain. 
+The [paratii.js](https://github.com/Paratii-Video/paratii-lib/blob/master/lib/paratii.js) library is the preferred way for clients to interact with the deployed contracts, offering access to them, wallet functionality, and convenience functions that provide more useful error handling than direct calls to the blockchain. 
 
 
