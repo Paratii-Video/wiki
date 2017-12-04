@@ -40,7 +40,7 @@ The system can be broken down into *administrative* contracts that primarily dea
 
 The following define Paratii's *administrative* contracts:
 
-### ParatiiRegistry: 
+### ParatiiRegistry 
 The [ParatiiRegistry.sol](https://github.com/Paratii-Video/paratii-contracts/blob/master/contracts/paratii/ParatiiRegistry.sol) contract is a simple key-value store on the blockchain that holds Paratii general settings. In particular, this is the place where the addresses of the deployed Paratii contracts are stored.
 
 For example, the following call will get the address of the `ParatiiToken` contract:
@@ -54,13 +54,13 @@ The `ParatiiRegistry` is an `Ownable` contract, and contains simple setters and 
     ParatiiRegistry.setUint('a-useful-constant', 99999)
     ParatiiRegistry.getUint('a-useful-constant') // will return 99999
     
-### ParatiiToken:
+### ParatiiToken
 
 [ParatiiToken.sol](https://github.com/Paratii-Video/paratii-lib/blob/master/contracts/paratii/ParatiiToken.sol) is an ERC20 token contract and contains the balances of all Paratii account holders.
 
     paratiToken.balanceOf('0x123') // will return the balance of the given address
     
-### ParatiiAvatar:
+### ParatiiAvatar
 
 [ParatiiAvatar.sol](https://github.com/Paratii-Video/paratii-lib/blob/master/contracts/paratii/ParatiiAvatar.sol) is a contract that can send and receive ETH and other ERC20 tokens, designed to collect and desimburse redistribution funds. It is controlled by a number of whitelisted addresses.
 
@@ -76,11 +76,11 @@ These contracts are expected to remain unchanged. By contrast, the *action* cont
 
 These *action* contracts currently are:
 
-### UserRegistry:
+### UserRegistry
 
 A registry with information about users: user metadata, upvote/downvote history, ownership of videos.
 
-### VideoRegistry:
+### VideoRegistry
 
 [VideoRegistry.sol](https://github.com/Paratii-Video/paratii-contracts/blob/master/contracts/paratii/VideoRegistry.sol) contains information about videos: their IPFS hash, its owner, and the price. This contract only stores essential information: additional metadata (duration, license, descriptions, etc etc) can be stored in IPFS.
 
