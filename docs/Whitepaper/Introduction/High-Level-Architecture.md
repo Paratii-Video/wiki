@@ -76,7 +76,7 @@ _Fragments_ are then wrapped up in a bigger message that has metadata like pti a
 
     optional Hello hello = 1;
     repeated Fragment fragments = 2;
-  }
+    }
 
 Nodes running the `paratii-protocol` are connected over libp2p and suited to do a basic set of operations:
 
