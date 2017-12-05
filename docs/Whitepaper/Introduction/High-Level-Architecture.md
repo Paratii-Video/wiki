@@ -1,12 +1,4 @@
 # Architecture Overview
-Roughly, what's needed to share a video over an internet connection is to get the source file to be stored, multiplexed and distributed - usually with the aid of a client that wraps the output of the process and presents it in a human-digestible form, e.g. a media player.
-
-The current paradigm relegates the abovementioned range of services to middlemen, under tacit agreements that offer "free" access to content distribution in exchange for the right to privately monetise user data and tax creators' earnings. The `paratii-protocol` leverages networks which are permissionless by design to subvert this paradigm, aiming to establish an open market for video and audience that:
-
-- Gives back all value to its contributors, without the accrue of profits for entities external to the system.
-- Bundles access to all base-layer protocols and distributed services needed to serve video over the web without intermediaries, presenting the lowest friction possible to creators, publishers and end-users, and allowing each to contribute up to its own will.
-- Is hardwired to move towards fully distributed computation, hosting, and control.
-
 At its core, Paratii is composed of a modular system that relies on:
 
 - Smart contracts running on the EVM, for logic processing, account handling and settlement of payments.
@@ -14,7 +6,7 @@ At its core, Paratii is composed of a modular system that relies on:
 
 and is under way to incorporate:
 
-- The Livepeer *2nd-layer infrastructure* protocol, for incentivised transcoding of on-demand streamed videos.
+- The Livepeer *2nd-layer infrastructure* protocol, for incentivised transcoding of video chunks.
 - InterPlanetary Linked Data (IPLD) for formatting metadata under cross-industry standards.
 
 ## Relevant Levels of Data
@@ -24,16 +16,76 @@ and is under way to incorporate:
 - address: unique identifier of an agent in the network.
 - video: an IPFS multihash, relevant to high-level APIs.
 
-## Message format
+## Message formats
+
+The Paratii protocol is message-based, as opposed to request-response. It used IPFS' PKI-based identity, and messages are signed using the same private key used to create the `nodeID`, allowing for receivers to get the public key out of the signature and check it against that of the requesting node.
+
+Deep down, messages are stringified JSON objects, to be parsed back by receivers. To define them, we first outline _Fragments_. These are main building blocks, suited for requesting a job upon a payload (e.g. transcoding a file):
+
+    message Fragment {
+      optional bytes tid = 1;
+      optional int32 type = 2;
+      optional bytes payload = 3;
+      optional bytes args = 4;
+    }
+    
+| Field         | Type          | Description  |
+| ------------- |:-------------:| ----       |
+| `id`          | `bytes`       | The `nodeID`   |
+| `type`        | `int32`       | `command` or `response`, signed  |
+| `payload`     | `bytes`       | The actual command. e.g. a transcoding `jobRequest`     |
+| `args`        | `bytes`       | The arguments for the command. E.g. a video file multihash. In the case of a `response` type, `args` holds the response itself.      |
+
+
+Or for peers to announce their conditions to party into a chequebook contract for data exchange, as [Swarm](https://github.com/ethersphere/swarm/wiki/Swap-demo-instructions) does:
+
+    message Hello {
+      required bytes eth = 1;
+      optional uint32 dropAt = 2;
+      optional uint32 payAt = 3;
+      optional uint32 buyAt = 4;
+      optional uint32 sellAt = 5;
+    }
+    
+| Field         | Type          | Description  |
+| ------------- |:-------------:| :-------       |
+| `eth`         | `bytes`       | The node's ethereum address   |
+| `dropAt`      | `uint32`      | How many blocks of data the peer is willing to send without getting paid upfront.|
+| `payAt`       | `uint32`      | How many blocks of data this peer wants to pays for at a time, per transaction.     |
+| `buyAt`       | `uint32`      | How much it's willing to pay for a block of data.     |
+| `sellAt`      | `uint32`      | How much it's willing to sell a block of data for.       |
+
+**(WIP HERE)** 
+_Fragments_ are then wrapped up in a bigger message that has metadata like pti address , signature and things like that.
+
+    message Message {
+    message Hello {
+      required bytes eth = 1;
+      optional uint32 dropAt = 2;
+      optional uint32 payAt = 3;
+      optional uint32 buyAt = 4;
+      optional uint32 sellAt = 5;
+    }
+
+    message Fragment {
+      optional bytes tid = 1;
+      optional int32 type = 2;
+      optional bytes payload = 3;
+      optional bytes args = 4;
+    }
+
+    optional Hello hello = 1;
+    repeated Fragment fragments = 2;
+  }
 
 Nodes running the `paratii-protocol` are connected over libp2p and suited to do a basic set of operations:
 
-**(WIP: @aeftimia / @ya7ya : we got to properly spec this!)**
-
+**(WIP)**
 - Encode a message as in IPFS protobuf, transforming it into a series of key-value pairs and concatenating them into a bytestream.
 - Exchange and verify a message (`get`/`put` PTI/ETH address; checks if it's a valid account).
-- Deal with payload **(arbitrary arguments to be spec'd)**, which can be a multihash in the case of a video (chunks a file into 1mb chunks, hashes them, seeks for the closest transcoding node, sends a jobRequest and asks for the chunks to be `get`, the transcoding node uploads its job to IPFS and gives back its multihash along links for thumbs/screenshots).
-- Signs messages (not default in IPFS) and runs a slightly modified `bitswap` that allows for custom `chunkSize` in order to optimise performance for browser-to-browser communication.
+- Deal with payload **(arbitrary commands to be spec'd)**, which can be a multihash in the case of a video (chunks a file into 1mb chunks, hashes them, seeks for the closest transcoding node, sends a jobRequest and asks for the chunks to be `get`, the transcoding node uploads its job to IPFS and gives back its multihash along links for thumbs/screenshots).
+- Run a slightly modified `bitswap` that allows for custom `chunkSize` in order to optimise performance for browser-to-browser communication.
+**(WIP)**
 
 ## Smart Contracts
 The system can be broken down into *administrative* contracts that primarily deal with the core infrastructure, and a series of *action* contracts that interact with users, videos, and metadata.
