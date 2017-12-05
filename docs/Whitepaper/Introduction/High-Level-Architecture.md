@@ -49,7 +49,7 @@ Or for peers to announce their conditions to party into a chequebook contract fo
     
 | Field         | Type          | Description  |
 | ------------- |:-------------:| :-------       |
-| `eth`         | `bytes`       | The node's ethereum address   |
+| `eth`         | `bytes`       | The node's ethereum address.   |
 | `dropAt`      | `uint32`      | How many blocks of data the peer is willing to send without getting paid upfront.|
 | `payAt`       | `uint32`      | How many blocks of data this peer wants to pays for at a time, per transaction.     |
 | `buyAt`       | `uint32`      | How much it's willing to pay for a block of data.     |
@@ -80,12 +80,20 @@ _Fragments_ are then wrapped up in a bigger message that has metadata like pti a
 
 Nodes running the `paratii-protocol` are connected over libp2p and suited to do a basic set of operations:
 
-**(WIP)**
+**(WIP HERE)**
 - Encode a message as in IPFS protobuf, transforming it into a series of key-value pairs and concatenating them into a bytestream.
 - Exchange and verify a message (`get`/`put` PTI/ETH address; checks if it's a valid account).
 - Deal with payload **(arbitrary commands to be spec'd)**, which can be a multihash in the case of a video (chunks a file into 1mb chunks, hashes them, seeks for the closest transcoding node, sends a jobRequest and asks for the chunks to be `get`, the transcoding node uploads its job to IPFS and gives back its multihash along links for thumbs/screenshots).
 - Run a slightly modified `bitswap` that allows for custom `chunkSize` in order to optimise performance for browser-to-browser communication.
 **(WIP)**
+
+| Command         | Arguments          | Response  |
+| ------------- |:-------------:| -------       |
+| `transcode`   | file multihash, owner       | **WIP**   |
+| `test`        | **WIP**      | **WIP**|
+| `X`           | **WIP**      | **WIP**     |
+| `Y`           | **WIP**      | **WIP**     |
+| `Z`           | **WIP**      | **WIP**       |
 
 ## Smart Contracts
 The system can be broken down into *administrative* contracts that primarily deal with the core infrastructure, and a series of *action* contracts that interact with users, videos, and metadata.
