@@ -25,10 +25,10 @@ The `bigWallet` is an EOA that, besides the abovementioned funds, directly recei
 
 ## Non-registered users & exceptional situations
 **TBD: 
-- Anonymous navigation.
-- Change password.
-- Different devices.
-- Players on multiple tabs (service workers to the rescue!).**
+Anonymous navigation.
+Change password.
+Different devices.
+Players on multiple tabs (service workers to the rescue!).**
 
 ## Extensibility
 **TBD: Plug-in oriented architecture.**
