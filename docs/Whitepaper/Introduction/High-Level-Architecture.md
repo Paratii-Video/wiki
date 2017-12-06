@@ -31,9 +31,9 @@ Deep down, messages are stringified JSON objects, to be parsed back by receivers
     
 | Field         | Type          | Description  |
 | ------------- |:-------------:| ----       |
-| `id`          | `bytes`       | The `nodeID`   |
-| `type`        | `int32`       | `command` or `response`, signed  |
-| `payload`     | `bytes`       | The actual command. e.g. a transcoding `jobRequest`     |
+| `id`          | `bytes`       | The `nodeID`.   |
+| `type`        | `int32`       | `command` or `response`, signed.  |
+| `payload`     | `bytes`       | The actual command. e.g. a transcoding `jobRequest`.     |
 | `args`        | `bytes`       | The arguments for the command. E.g. a video file multihash. In the case of a `response` type, `args` holds the response itself.      |
 
 
