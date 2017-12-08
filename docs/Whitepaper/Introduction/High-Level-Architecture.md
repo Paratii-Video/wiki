@@ -2,7 +2,7 @@
 At its core, Paratii is composed of a modular system that relies on:
 
 - Smart contracts running on the EVM, for logic processing, account handling and settlement of payments.
-- The InterPlanetary File System (IPFS) for distributed file storage, currently through the `js-ipfs` implementation.
+- The InterPlanetary File System (IPFS) for distributed file storage, currently through a modified `js-ipfs` implementation.
 
 and is under way to incorporate:
 
