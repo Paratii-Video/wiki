@@ -6,30 +6,29 @@ A small publisher may run a server on AWS with a single machine serving videos f
 # Uploading Videos
 Users will be able to upload videos to IPFS with their Paratii uploader Tool. The interface will allow the user to select a video from their local hard drive and will prompt the user to either select a preexisting communication keypair or generate a new one. If the user opts to generate a new keypair, they will be given the option of registering the public key on the Paratii `UserRegistry` if their client's wallet contains sufficient funds to do so.
 
-Next, their local video will be streamed through Livepeer for transcoding. The output streams (in various common formats) will be gathered and segmented. Each segment of which will be individually uploaded to IPFS. Finally, a key will be generated, unique to one of the uploader's Paratii wallet private key and the hash of the entire transcoded stream, which will be used to encrypt a list of the hashes of each segment of video in sequential order. This encrypted *table of contents* will be uploaded to IFPS, and its hash added to a *directory* with the following format:
+Next, their local video will be streamed through Livepeer for transcoding. The output streams (in various common formats) will be gathered and segmented. Each segment of which will be individually uploaded to IPFS.A *table of contents*, listing the hash of each segmenti in sequential order, will be generated for each format. A *directory* with the following format:
 
 ```
 {
-  format 1: Hash(Encrypt(
+  format 1: Hash(
   {[
     Hash(segment 1),
     Hash(segment 2),
     ...
   ]}
-  ))),
-)
-  format 2: Hash(Encrypt(
+  ),
+  format 2: Hash(
   {[
     Hash(segment 1),
     Hash(segment 2),
     ...
   ]}
-  )),
-...
+  ),
+  ...
 }
 ```
 
-This directory will be uploaded to IPFS and its hash will be registered on the blockchain with the `VideoRegistry` contract with the following metadata:
+will be uploaded to IPFS and its hash will be registered on within the `VideoRegistry` contract as part of the following metadata:
 
 ```
 {
@@ -39,19 +38,6 @@ This directory will be uploaded to IPFS and its hash will be registered on the b
   duration: <duration in seconds>,
   segment: {length: <seconds>, size: <size in kbytes>},
   formats: [<available formats>]
-}
-```
-
-The keys used to encrypt each list of segments will be stored on the uploader's local computer in the following form:
-
-```
-{
-  ipfs hash: <directory hash>,
-  upload time: <timestamp>
-  formats: {
-    format 1: <key to decrypt hash of segment list in format 1>,
-    format 2: <key to decrypt hash of segment list in format 2>,
-    ...
 }
 ```
 
@@ -91,7 +77,6 @@ Where `signature` contains a signature of JSON object containing the remaining d
 ```
 
 Similarly, `signature` signs the following JSON document.
-
 
 ```
 {
@@ -148,6 +133,21 @@ This will come in handly later, but for now we can verify the extra `signature` 
   signature: <signature>
 }
 ```
+
+Where the `signature` signs the following JSON document.
+
+```
+{
+  nonce: <nonce>,
+  segments: {
+    N: <data>,
+    N + 1: <data>,
+    ...
+  }
+}
+```
+
+Note the owner can minimize risk of cloning the repository by intentionally cashing out on the payment channel before sending the last segment or simply ommiting a small random proporition of segments. Without *every* segment, the buyer will never be able to advertise the same file with the same ipfs hash. They will at best be able to sell content with a different hash clearly registered at a later date. It will be very appearent who the original owner was. This is only mentioned as an optional defensive strategy to be employed by the publisher, and not an inherent part of the Paratii Protocol.
 
 ## Bidding On Attention
 Advertisers may bid on a viewer's attention using a similar protocol to how viewers bid on content. They may have found the communication public key through several means including:
