@@ -1,5 +1,5 @@
 # Paratii Protocol
-The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. The majority of communication will be facilitated offchain via IPFS pubsub. Users will generate one or more **communication keypairs** with their Paratii client (Uploader Tool or Paratii Player). For each communication keypair, the public key is optinally registered on the `UserRegistry` contract in association with the Paratii wallet address registered to the user, and optional metadata the user may set to complete their profile. Public keys may be added or revoked at any time on the `UserRegistry` contract. For each public key registered to a Paratii wallet address, the client in possession of the wallet's private key will subscribe via *IPFS pubsub* to a topic given by the hash of the registered communication public key.
+The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. The majority of communication will be facilitated offchain via IPFS pubsub. Users will generate one or more **communication keypairs** with their Paratii client (Uploader Tool or Paratii Player). For each communication keypair, the public key is optinally registered on the `UserRegistry` contract in association with the Paratii wallet address registered to the user, and optional metadata the user may set to complete their profile. Public keys may be added or revoked at any time on the `UserRegistry` contract. For each public key registered to a Paratii wallet address, the client in possession of the wallet's private key will receive notifications over `libp2p` via a local ipfs node registered with the communication keypair.
 
 # Uploading Videos
 Users will be able to upload videos to IPFS with their Paratii uploader Tool. The interface will allow the user to select a video from their local hard drive and will prompt the user to either select a preexisting communication keypair or generate a new one. If the user opts to generate a new keypair, they will be given the option of registering the public key on the Paratii `UserRegistry` if their client's wallet contains sufficient funds to do so.
@@ -45,7 +45,7 @@ The keys used to encrypt each list of segments will be stored on the uploader's 
 ```
 {
   ipfs hash: <directory hash>,
-  uplaod time: <timestamp>
+  upload time: <timestamp>
   formats: {
     format 1: <key to decrypt hash of segment list in format 1>,
     format 2: <key to decrypt hash of segment list in format 2>,
@@ -53,7 +53,7 @@ The keys used to encrypt each list of segments will be stored on the uploader's 
 }
 ```
 
-Finally, the client will subscribe to `Hash(<communication public key>)` via IPFS pubsub.
+Finally, the client will register and maintain an IPFS node with the communication key pair.
 
 # The Exchange
 Before streaming can begin, viewers will be allowed to bid on content they would like to watch, and producers will be able to bid on viewers to whom they wish to sell their content.
@@ -67,7 +67,7 @@ The payload itself takes the following form:
 {
   nonce: <nonce>,
   bid: <PTI/second>,
-  expiration: <experiation date of bid>,
+  expiration: <expiration date of bid>,
   hash: <directory hash>,
   format: <format>,
   signature: <signature>,
@@ -75,16 +75,30 @@ The payload itself takes the following form:
 }
 ```
 
-Where `signature` contains a signature of JSON object containing the remaining data in the packet and is signed with the bidder's `communication public key`. The `nonce` is used to prevent fraud in which the recipient reuses messages. An example would be if two bids are sent and the recipient attempts to cash out on both at once. Whenever a sequence of messages sucessfully leads to establishing a micropayment channel, the nonce changes. The `signature` and `wallet signature` sign with the `communication private key` and `wallet private key` of the sender respectively. They each sign a hash of a JSON document containing all fields other than themselves. For example, `wallet signature` signs the hash of the following JSON document.
+Where `signature` contains a signature of JSON object containing the remaining data in the packet and is signed with the bidder's `communication public key`. The `nonce` is used to prevent fraud in which the recipient reuses messages. An example would be if two bids are sent and the recipient attempts to cash out on both at once. Whenever a sequence of messages sucessfully leads to establishing a micropayment channel, the nonce changes. The `signature` and `wallet signature` sign with the `communication private key` and `wallet private key` of the sender respectively. The `wallet signature` signs the following JSON document withthe private key of the Paratii wallet.
 
 ```
 {
   nonce: <nonce>,
   bid: <PTI/second>,
-  expiration: <experiation date of bid>,
+  expiration: <expiration date of bid>,
   hash: <directory hash>,
   format: <format>,
   signature: <signature>
+}
+```
+
+Similarly, `signature` signs the following JSON document.
+
+
+```
+{
+  nonce: <nonce>,
+  bid: <PTI/second>,
+  expiration: <expiration date of bid>,
+  hash: <directory hash>,
+  format: <format>,
+  wallet signature: <wallet signature>
 }
 ```
 
@@ -134,7 +148,7 @@ This will come in handly later, but for now we can verify the extra `signature` 
 ```
 
 ## Bidding On Attention
-Advertisers may bid on a viewer's attention using a similar protocol to how viewers bid on content. They publish a bid via IPFS pubsub to a topic given by the hash of a registered communication public key. They may have found the communication public key through several means including:
+Advertisers may bid on a viewer's attention using a similar protocol to how viewers bid on content. They may have found the communication public key through several means including:
 
 - combing the `UserRegistry` for registered communication public keys
 - subscribing to a data mining agent
@@ -146,7 +160,7 @@ The payload will take the following form.
 {
   nonce: <nonce>,
   bid: <PTI/second>,
-  expiration: <experiation date of bid>,
+  expiration: <expiration date of bid>,
   hash: <directory hash>,
   format: <format>,
   signature: <signature>,
