@@ -104,7 +104,7 @@ When the viewer's Paratii Player queries IPFS for the video, the player will rec
   bytes: <number of bytes received>,
   hash: <hash of received data>,
   key: <sender's public key>,
-  buyer_signatur: <buyer IPFS public key signature>,
+  buyer_signature: <buyer IPFS public key signature>,
   sender_signature: <sender IPFS public key signature>
 }
 ```
@@ -118,9 +118,44 @@ When the viewer's Paratii Player queries IPFS for the video, the player will rec
   bytes: <number of bytes received>,
   hash: <hash of received data>,
   key: <sender's public key>,
-  buyer_signatur: <buyer IPFS public key signature>,
+  buyer_signature: <buyer IPFS public key signature>,
   sender_signature: <sender IPFS public key signature>
 }
 ```
 
 The owner may then submit the payment to the micropayment channel, which will assign the appropriate payouts to the owner and sender.
+
+Note that within this system, it is always the publisher's job to spend ETH communicating with smart contracts. If the Paratii system succeeds, publishers will sell PTI to buyers through exchanges, thereby circulating earned PTI in exchange for the ETH necessary to run the system.
+
+# Advertising
+Advertising, that is buying attention, works in an analagous way to buying video content. Publishers may decide to list advertisements at a *negative* price. This is to say the viewer will earn money from a sponser to watch the video content. The cash flow must reverse such that the viewer is paid by the publisher rather than vice veresa. A publisher can advertise a negative price and a negative fee to be paid to the content provider seeding blocks. This of course raises the question of whether any of these parties is expected to be the advertiser and if not, how an advertising agent is expected to pay the viewer for their time wotching a video. Paratii will aim to mirror the existing, centralized model of advertising in which the advertiser is separate from the publisher and the data seeder. However, the advertiser must execute their own analysis to determine whether a viewer is real and watching their ads. This can be outsourced to a third party, but sine there currently exists no universal solution to "proof of view" to date, any would-be advertiser would need to develop their own solution to this problem. They would likey have to outsource this effort to third party data miners that track which addresses have bought which videos, and determined who is likey to actually watch their video. Advertisers must reserve the right to refuse to pay viewers who they think will not be worth their advertised price (either because they are likely a robot or are irrelavent to their business).
+
+The advertiser will publish their ad as a video with a *negative* price for the video, and a positive one for the fee paid to whoever sucessfully serves the video content. When a negative price is registered on the `VideoRegistry`, the advertiser is expected to mantain enough funds in the wallet registered in the `VideoRegistry` to incentivize content providers and viewers. The process will oherwise look similar to buying a video. The user will send an initial packet to the publisher as though they are purchasing a video.
+
+```
+{
+  id: <id>,
+  format: <format>,
+  wallet_signature: <wallet_signature>,
+  IPFS_signature: <IPFS_signature>
+}
+```
+
+This will be submitted to the Paratii micropayment smart contract, which will open a payment channel as usual. However, since the price of the video is negative, the funds necessary to pay the video will be deducted from the `owner`'s address if they have sufficient funds to pay someone to view the entire video at the rate advertised on the `VideoRegistry`. The rest of the protocol proceeds as usual, where the advertiser is assumed to publish their own content, and therefore will rightly be responsible for paying any ETH necessary to communicate with smart contracts.
+
+Care must be taken to generate a proper proof of view. Since data is already content addressed by its hash on IPFS, a dishonest viewer could simply submit receipts of the chunks of video without actually watching them. Where the viewer previously sent micropayments that referenced the hash of a segment and the IFPS node that sent it, the viewer will now send back a *receipt* in a similar format.
+  
+```
+{
+  nonce: <nonce>, 
+  owner: <video owner's IFPS public key>,
+  bytes: <number of bytes received>,
+  hash: <hash of received data + nonce>,
+  key: <sender's public key>,
+  viewer_signature: <viewer's IPFS public key signature>
+}
+```
+
+The only difference between a receipt and a micropayment is that rather than sending back the hash of the data segment, the viewer must append the `nonce` to the data segment and hash *that* as proof they viewed the video. Note the viewer can only be paid for watching an advertisement once in this scheme. This is because once they have the raw video data, a viewer can always just *pretend* to have rewatched the video with hash based challenges. That is, if submitting a hash is a proof of view, there is no feasible way to distinguish viewing twice from viewing once, caching the data, and submitting a new hash that satisfies a new rule. For example, appending a timestamp might naively solve the problem, but the viewer could just as easily cache their data and send back hashes with new timestamps. A viewer may continue to earn money from the advertiser by serving the data on IFPS to new viewers.
+
+It is the advertiser's duty to track who has already watched which parts of their ads. They would be advised to organize their records by `nonce` and storing a list of `hash of segment + nonce` segments for which they paid a viewer with the given `nonce`.
