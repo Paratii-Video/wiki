@@ -1,8 +1,8 @@
 # Paratii Protocol
-The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. Buyers will purchase video segments via micropayments over IPFS using `libp2p`. Publishers will upload video content to IPFS and register its hash on a smart contract. Viewers will purchase the video through the smart contract and stream the video over IPFS. The viewer is expected to send receipts to the nodes storing and serving the video in question, who will in turn exchange these receipts for micropayments on the blockchain. In this way, the viewers pay publishers for hosting content, or in turn incentivize IPFS nodes to serve it. The Parati protocol authenticates transactions at each step of this system.
+The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. Buyers will purchase video segments via micropayments over IPFS using `libp2p`. Publishers will upload video content to IPFS and register its hash on a smart contract. Viewers will purchase the video through the smart contract and download the video over IPFS. The viewer is expected to send receipts to the nodes storing and serving the video in question, who will in turn exchange these receipts for micropayments on the blockchain. In this way, the viewers pay publishers for hosting content, or in turn incentivize IPFS nodes to serve it. The Parati protocol authenticates transactions at each step of this system.
 
 # Uploading and Registering Videos
-Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Their local video will be streamed through Livepeer for transcoding, and uploaded to IFPS in several common formats. The hash of the video in each format, as stored on IPFS, will be registered within the `VideoRegistry` contract as part of the following metadata.
+Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Their local video will be sent through a transcoder, and uploaded to IFPS in several common formats. The hash of the video in each format, as stored on IPFS, will be registered within the `VideoRegistry` contract as part of the following metadata.
 
 ```
 {
@@ -12,10 +12,8 @@ Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Th
   id: <video id>,
   formats: {
     <format 1>: {
-      hash: <ipfs hash>,
+      id: <id>,
       price: <PTI>,
-      fee: <PTI/byte>,
-      ttl: <ttl of micropayment channel>,
       size: <size in bytes>
     },
     ...
@@ -23,7 +21,16 @@ Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Th
 }
 ```
 
-All metadata within records on the `VideoRegistry` can be changed by the `owner`. The `price` is the price in PTI that the publisher charges to manage the smart contracts. The `fee` is the fee offered to IPFS nodes who help stream the video to the viewer. Finally, `ttl` determines the maximum lifetime of the payment channel that binds the buyer, publisher, and any parties that stream the video. The `id` field is a unique identifier for the video. This can be a hash of a JSON document consisting of all other metadata when the video was first registered.
+All metadata within records on the `VideoRegistry` can be changed by the `owner`. The `price` is the price in PTI that the publisher charges to manage the smart contracts. The `fee` is the fee offered to IPFS nodes who help download the video to the viewer. The `id` field is a unique identifier for the video. This can be a hash of a JSON document consisting of all other metadata when the video was first registered.
+
+## Uploading at the Portal
+Users will be prompted to upload their video at a web portal, which will respond wtih a screen requesting an estimated price in PTI and ETH for the transcoding job. The user will fill out a form with the metadata used to register the video on the Ethereum blockchain within the `VideoRegistry.sol` contract and send the requested amount of PIT or ETH to an escrow service. On the backend, the portal will initiate an IPFS node, which uploads the raw video file to IPFS, and recieves a hash `rawHash`. 
+
+The portal then submits a transcoding job to `TranscodingJobs.sol` referenced by `rawHash`, together with the amount of ETH or PTI uploaded to the escrow service. The uploader will be given the opportunity to cancel the request before the job is accepted. Meanwhile, transcoding agents will scans and accepts jobs submitted to `TranscodingJobs.sol`. The transcoder will keep the money should an error occur due to an invalid file uploaded by the uploader. The funds will remain in the escrow should the transcoder fail to transcode the video at the settled price, which the user can reclaim at the uploading portal.
+
+Upon successfully transcoding the video, tbe transcoding agent will register a resulting `ipfsHash` within the `Videos.sol` contract and update the `TranscodingJobs.sol` contract to reflect the job's completion. At this point, the transcoding agent will receive the funds locked in the escrow.
+
+Paratii will host a centralized transcoding service during its first iteration, and move on to a decentralized one in the future.
 
 # Buying a Video
 When a viewer purchases a video, they will send the following data to the publisher.
