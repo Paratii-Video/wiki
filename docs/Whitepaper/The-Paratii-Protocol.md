@@ -169,4 +169,3 @@ It is the advertiser's duty to track who has already watched which parts of thei
 
 # Privacy
 The Paratii Player will, by default, purchase videos from a "throwaway wallet" created just for buying that one video. This alone will make it difficult (though not impossible) to connect the user's viewing history to a single identity. Paratii may adopt zk-snarks in the future to mask the amount of PTI in each user's wallet. This will make it impossible to track purchases for each video. Within this system, users could fund their temporary wallets anonymously with zk-snarks, and pay from their throwaway wallets publicly using the system described above. In either case, users' local paratii players will track their viewing history and allow the user to publish certificates connecting their registered identity to any videos they actually purchased. This will allow advertisers to target the their content to particular users.
-
