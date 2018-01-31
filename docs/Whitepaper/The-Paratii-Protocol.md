@@ -1,5 +1,5 @@
 # Paratii Protocol
-The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. Buyers will purchase video segments via micropayments over IPFS using `libp2p`. Publishers will upload video content to IPFS and register its hash on a smart contract. Viewers will purchase the video through the smart contract and download the video over IPFS. The viewer is expected to send receipts to the nodes storing and serving the video in question, who will in turn exchange these receipts for micropayments on the blockchain. In this way, the viewers pay publishers for hosting content, or in turn incentivize IPFS nodes to serve it. The Parati protocol authenticates transactions at each step of this system.
+The Paratii Protocol governs all forms of peer to peer communication within the Paratii ecosystem. Buyers will purchase videos via payments over IPFS using `libp2p`. Publishers will upload video content to IPFS and register its hash on a smart contract. Viewers will purchase the video through the smart contract and download the video over IPFS. The viewer is expected to send receipts to the nodes storing and serving the video in question, who will in turn exchange these receipts for payments on the blockchain. In this way, the viewers pay publishers for hosting content, or in turn incentivize IPFS nodes to serve it. The Parati protocol authenticates transactions at each step of this system.
 
 # Uploading and Registering Videos
 Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Their local video will be sent through a transcoder, and uploaded to IFPS in several common formats. The hash of the video in each format, as stored on IPFS, will be registered within the `VideoRegistry` contract as part of the following metadata.
@@ -64,7 +64,7 @@ When a viewer purchases a video, they will send the following data to the publis
 }
 ```
 
-The publisher will submit this information to Paratii's micropayment contract, which will extract exactly enough PTI from the buyer's wallet to pay the price of the video in the requested format as regiseted in the `VideoRegistry`. The contract will use the `id` and `format` fields to determine the `owner` from the `VideoRegistry`. 
+The publisher will submit this information to Paratii's payment contract, which will extract exactly enough PTI from the buyer's wallet to pay the price of the video in the requested format as regiseted in the `VideoRegistry`. The contract will use the `id` and `format` fields to determine the `owner` from the `VideoRegistry`. 
 
 ```
 nonce = HASH(
@@ -102,7 +102,7 @@ When the viewer's Paratii Player queries IPFS for the video, the player will rec
 }
 ```
 
-`key` contains the public key of the IFPS node that sent the chunk. This micropayment effectively verifies that the buyer recieved `bytes` bytes of data pertaining to the purchase referenced by `nonce` from the owner of the IPFS node with public key `key. To reclaim their payment, the sender will forward their payment to the `owner` referenced in the payment with a new signature. That is, the owner will receive receipts in the following form.
+`key` contains the public key of the IFPS node that sent the chunk. This payment effectively verifies that the buyer recieved `bytes` bytes of data pertaining to the purchase referenced by `nonce` from the owner of the IPFS node with public key `key`. To reclaim their payment, the sender will forward their payment to the `owner` referenced in the payment with a new signature. That is, the owner will receive receipts in the following form.
 
 ```
 {
@@ -148,7 +148,7 @@ The advertiser will publish their ad as a video with a *negative* price for the 
 }
 ```
 
-This will be submitted to the Paratii micropayment smart contract, which will open a payment channel as usual. However, since the price of the video is negative, the funds necessary to pay the video will be deducted from the `owner`'s address if they have sufficient funds to pay someone to view the entire video at the rate advertised on the `VideoRegistry`. The rest of the protocol proceeds as usual, where the advertiser is assumed to publish their own content, and therefore will rightly be responsible for paying any ETH necessary to communicate with smart contracts.
+This will be submitted to the Paratii payment smart contract, which will open a payment channel as usual. However, since the price of the video is negative, the funds necessary to pay the video will be deducted from the `owner`'s address if they have sufficient funds to pay someone to view the entire video at the rate advertised on the `VideoRegistry`. The rest of the protocol proceeds as usual, where the advertiser is assumed to publish their own content, and therefore will rightly be responsible for paying any ETH necessary to communicate with smart contracts.
 
 Care must be taken to generate a proper proof of view. Since data is already content addressed by its hash on IPFS, a dishonest viewer could simply submit receipts of the chunks of video without actually watching them. Where the viewer previously sent payments that referenced the hash of a segment and the IFPS node that sent it, the viewer will now send back a *receipt* in a similar format.
   
