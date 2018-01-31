@@ -14,6 +14,7 @@ Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Th
     <format 1>: {
       id: <id>,
       price: <PTI>,
+      fee: <fee>,
       size: <size in bytes>
     },
     ...
@@ -23,7 +24,7 @@ Users will be able to upload videos to IPFS with their Paratii Uploader Tool. Th
 
 All metadata within records on the `VideoRegistry` can be changed by the `owner`. The `price` is the price in PTI that the publisher charges to manage the smart contracts. The `fee` is the fee offered to IPFS nodes who help download the video to the viewer. The `id` field is a unique identifier for the video. This can be a hash of a JSON document consisting of all other metadata when the video was first registered.
 
-## Uploading at the Portal
+# Uploading at the Portal
 Users will be prompted to upload their video at a web portal, which will respond wtih a screen requesting an estimated price in PTI and ETH for the transcoding job. The user will fill out a form with the metadata used to register the video on the Ethereum blockchain within the `VideoRegistry.sol` contract and send the requested amount of PIT or ETH to an escrow service. On the backend, the portal will initiate an IPFS node, which uploads the raw video file to IPFS, and recieves a hash `rawHash`. 
 
 The portal then submits a transcoding job to `TranscodingJobs.sol` referenced by `rawHash`, together with the amount of ETH or PTI uploaded to the escrow service. The uploader will be given the opportunity to cancel the request before the job is accepted. Meanwhile, transcoding agents will scans and accepts jobs submitted to `TranscodingJobs.sol`. The transcoder will keep the money should an error occur due to an invalid file uploaded by the uploader. The funds will remain in the escrow should the transcoder fail to transcode the video at the settled price, which the user can reclaim at the uploading portal.
