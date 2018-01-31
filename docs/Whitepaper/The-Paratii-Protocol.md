@@ -127,7 +127,6 @@ When the viewer's Paratii Player queries IPFS for the video, the player will rec
   hash: <hash of received data>,
   key: <sender's public key>,
   buyerSignature: <buyer IPFS public key signature>,
-  senderSignature: <sender IPFS public key signature>
 }
 ```
 
@@ -136,9 +135,11 @@ The owner may then submit the payment to the payment channel, which will assign 
 Note that within this system, it is always the publisher's job to spend ETH communicating with smart contracts. If the Paratii system succeeds, publishers will sell PTI to buyers through exchanges, thereby circulating earned PTI in exchange for the ETH necessary to run the system.
 
 # Advertising
-Advertising, that is buying attention, works in an analagous way to buying video content. Publishers may decide to list advertisements at a *negative* price. This is to say the viewer will earn money from a sponser to watch the video content. The cash flow must reverse such that the viewer is paid by the publisher rather than vice veresa. A publisher can advertise a negative price and a negative fee to be paid to the content provider seeding blocks. This of course raises the question of whether any of these parties is expected to be the advertiser and if not, how an advertising agent is expected to pay the viewer for their time wotching a video. Paratii will aim to mirror the existing, centralized model of advertising in which the advertiser is separate from the publisher and the data seeder. However, the advertiser must execute their own analysis to determine whether a viewer is real and watching their ads. This can be outsourced to a third party, but since there currently exists no universal solution to "proof of view" to date, any would-be advertiser would need to develop their own solution to this problem. They would likey have to outsource this effort to third party data miners that track which addresses have bought which videos, and determined who is likey to actually watch their video.
+Advertising, that is buying attention, works in an analagous way to buying video content. Publishers may decide to list advertisements at a *negative* price. This is to say the viewer will earn money from a sponser to watch the video content. The cash flow must reverse such that the viewer is paid by the publisher rather than vice veresa. A publisher can advertise a negative price and a negative fee to be paid to the content provider seeding blocks. This of course raises the question of whether any of these parties is expected to be the advertiser and if not, how an advertising agent is expected to pay the viewer for their time wotching a video.
 
-The advertiser will publish their ad as a video with a *negative* price for the video, and a positive one for the fee paid to whoever sucessfully serves the video content. When a negative price is registered on the `VideoRegistry`, the advertiser is expected to mantain enough funds in the wallet registered in the `VideoRegistry` to incentivize content providers and viewers. The process will oherwise look similar to buying a video. The user will send an initial packet to the publisher as though they are purchasing a video.
+Paratii will aim to mirror the existing, centralized model of advertising in which the advertiser is separate from the publisher and the data seeder. However, the advertiser must execute their own analysis to determine whether a viewer is real and watching their ads. This can be outsourced to a third party, but since there currently exists no universal solution to "proof of view" to date, any would-be advertiser would need to develop their own solution to this problem. They would likey have to outsource this effort to third party data miners that track which addresses have bought which videos, and determined who is likey to actually watch their video.
+
+The advertiser will publish their ad as a video with a *negative* price for the video, and a positive one for the fee paid to whoever sucessfully serves the video content. When a negative price is registered on the `VideoRegistry`, the advertiser is expected to mantain enough funds in the wallet registered in the `VideoRegistry` to incentivize content providers and viewers. The process will otherwise look similar to buying a video. The user will send an initial packet to the publisher as though they are purchasing a video.
 
 ```
 {
@@ -160,6 +161,7 @@ Care must be taken to generate a proper proof of view. Since data is already con
   bytes: <number of bytes received>,
   hash: <hash of received data + nonce>,
   key: <sender's public key>,
+  metadata: <optional metadata>,
   viewerSignature: <viewer's IPFS public key signature>
 }
 ```
@@ -167,6 +169,9 @@ Care must be taken to generate a proper proof of view. Since data is already con
 The only difference between a receipt and a payment is that rather than sending back the hash of the data segment, the viewer must append the `nonce` to the data segment and hash *that* as proof they viewed the video. Note the viewer can only be paid for watching an advertisement once in this scheme. This is because once they have the raw video data, a viewer can always just *pretend* to have rewatched the video with hash based challenges. That is, if submitting a hash is a proof of view, there is no feasible way to distinguish viewing twice from viewing once, caching the data, and submitting a new hash that satisfies a new rule. For example, appending a timestamp might naively solve the problem, but the viewer could just as easily cache their data and send back hashes with new timestamps. A viewer may continue to earn money from the advertiser by serving the data on IFPS to new viewers.
 
 It is the advertiser's duty to track who has already watched which parts of their ads. They would be advised to organize their records by `nonce` and storing a list of `hash of segment + nonce` segments for which they paid a viewer with the given `nonce`.
+
+## Metadata
+The `metadata` field may be activated in future designs to include optional tracking data taken from the client's browser. This would be a JSON document that includes any information that could be recorded from a browser that the viewer voluntarily discose in exchange for a higher viewing fee. Care needs to be taken to ensure proper security precautions are met. This metadata would be sent to the blockchain along with the other information in the protocol.
 
 # Privacy
 The Paratii Player will, by default, purchase videos from a "throwaway wallet" created just for buying that one video. This alone will make it difficult (though not impossible) to connect the user's viewing history to a single identity. Paratii may adopt zk-snarks in the future to mask the amount of PTI in each user's wallet. This will make it impossible to track purchases for each video. Within this system, users could fund their temporary wallets anonymously with zk-snarks, and pay from their throwaway wallets publicly using the system described above. In either case, users' local paratii players will track their viewing history and allow the user to publish certificates connecting their registered identity to any videos they actually purchased. This will allow advertisers to target the their content to particular users.
