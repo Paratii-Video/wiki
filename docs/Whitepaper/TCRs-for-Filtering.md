@@ -99,7 +99,7 @@ _LIQUIDITY_POOL_SIZE_ = 1/3 * tokenSupply³
 
 Which represents the area under our curve between 0 and the current tokenSupply. 
 
-<img src="https://i.imgur.com/xaIzpTb.jpg" width="400">
+<img src="https://i.imgur.com/xaIzpTb.jpg" width="800">
 
 *[Slava Balasanov's calculations for setting prices through bonding curves](https://hackernoon.com/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17).*
 
