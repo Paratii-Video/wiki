@@ -35,7 +35,7 @@ As [Mike Goldin, from AdChain](https://medium.com/@ilovebagels/token-curated-reg
 The amount, in PTI tokens, a candidate must lock as a deposit whenever submitting a video, and which must remain "bonded" for the duration of the listing thereafter.
 
 ##### `APPLY_STAGE_LEN`
-The duration, in blocks or other defined period (e.g. epoch), during which an application can be challenged. On the original implementation, listing occurs only after the end of this period. The proposal here is to list applicants immediately, and extend the `_APPLY_STAGE_LEN_` indefinitely (perpetuating the "challenge window"). Alternatively, we can incorporate cost functions that increase the matching stake required with time once a certain period has passsed and no challenge was made.
+The duration, in blocks or other defined period (e.g. epoch), during which an application can be challenged. On the original implementation, listing occurs only after the end of this period. The proposal here is to list applicants immediately, and extend the `APPLY_STAGE_LEN` indefinitely (perpetuating the "challenge window"). Alternatively, we can incorporate cost functions that increase the matching stake required with time once a certain period has passsed and no challenge was made.
 
 ##### `COMMIT_PERIOD_LEN`
 The duration of the "face-off" phase, in blocks or other defined period (e.g. epoch). Period during which token holders can commit votes for a certain challenge.
