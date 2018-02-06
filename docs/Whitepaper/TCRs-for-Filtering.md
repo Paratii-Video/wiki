@@ -66,26 +66,52 @@ The reference implementation we borrow most of these parameters from is in https
 Although the ability to organise content in playlists should be frictionless for any network user, the mechanisms behind TCRs can be extended by users willing to create skin-in-the-game playlists, or to try "outperforming
 the curation output" of the main, generic list.
 
-Treasured Playlists are a category of content listings that are subject to the same propose-challenge mechanisms of the parent-TCR, but with a difference: when one is created (and a corresponding TCR contract, deployed), it becomes able to mint its own native staking token. 
+Treasured Playlists are a category of content listings subject to the same propose-challenge mechanisms of the parent-TCR, but with a difference: when one is created (and a corresponding TCR contract, deployed), it becomes able to mint its own native staking token. 
 
 Users willing to start a Treasured Playlist (which can range from an organisation trying to secure a crowdsourced list of videos; a common user speculating on a specific list he's made; a promoter willing to bootstrap a group of creators) can initiate the following actions: (1) deploy a [new smart token and market maker contract](https://github.com/bancorprotocol/contracts); (2) stake an amount of PTI into it; (3) it spins off a child-TCR contract with the native token set to be the newly created one; (4) define the distribution of the new token; (5) sponsor applications into the playlist. 
-
-Different from the PTI, these are made nontransferrable, but buyable or redeemable only against the market making contract
-that initially holds the “staked amount". The market maker establishes one minimum “stake price” for “buying” the token, and one “redeeming value” for which it can be “sold” back for PTI. Both grow as the “minted” supply of the token grows, and the distance between them too. 
-
-<img src="https://i.imgur.com/yq0miXB.png" width="400">
-
-*[Simon de la Rouviere's representation](https://medium.com/@simondlr/tokens-2-0-curved-token-bonding-in-curation-markets-1764a2e0bee5) of a bonding curve used by a market maker to determine prices.*
 
 The main parameters its creator defines are:
 
 ##### _LIQUIDITY_POOL_SIZE_
-Percentage of the supply of the new token (standardly defined as equal to that of the parent-TCR native token) to remain locked into the contract's liquidity pool.
+Contains the locked reserve currency (PTI), and, initially, consists by default of the child-TCR's creator _MIN_DEPOSIT_ staked to kickstart the contract. It increases or decreases dynamically according to the demand for the child token. 
 
 ##### _OWNER_PCT_
-The amount of tokens, in percentage of the supply, to be distributed, or pre-minted, to the list's creator.
+The amount of tokens, in percentage of the _tokenSupply_, to be distributed, or pre-minted, to the list's creator.
 
-The _LIQUIDITY_POOL_SIZE_ is rather locked in the market maker contract, just like the the _MIN_DEPOSIT_ initially staked in PTI by the child-TCR creator - these are effectively the two sides of the market.
+##### _ RESERVE_RATIO_
+The relationship between token price, token supply and _LIQUIDITY_POOL_SIZE_.
+
+_RESERVE_RATIO_ = _LIQUIDITY_POOL_SIZE_ / (currentBuyPrice * tokenSupply)
+
+Different from the PTI, these token are made nontransferrable, but buyable or redeemable only against the market making contract that initially holds the “staked amount". The market maker establishes a price for buying the token and a “redeeming value” for which it can be “sold” back for PTI - both curves can be the same; they can have a fixed distance; or can have a distance that grows exponentially as more tokens are minted.
+
+<img src="https://i.imgur.com/yq0miXB.png" width="400">
+
+*[Simon de la Rouviere's representation](https://medium.com/@simondlr/tokens-2-0-curved-token-bonding-in-curation-markets-1764a2e0bee5) of a bonding curve with increasingly distant ceiling and floor prices, used by a market maker.*
+
+At any moment, a token can be redeemed against the market maker for the reserve currency (PTI) according to the _currentRedeemPrice_ curve, and the market maker will burn it, reducing the _totalSupply_.
+
+Such price fluctuations present a computational challenge: setting the _currentBuyPrice_ for selling 5 newly minted tokens isn't trivial once the price is supposed to change every time a new token is minted (or even fractions of tokens). The goal of computing the sum of all infinitely small changes in price can be achieved by calculating the area under the bonding curve in question (_currentBuyPrice_ or _currentRedeemPrice_), using integrals.
+
+For example, to find the PTI (_LIQUIDITY_POOL_SIZE_) held by a quadratic bonding curve contract, we calculate the integral of the function defining the current price:
+
+_LIQUIDITY_POOL_SIZE_ = 1/3 * tokenSupply³
+
+Which represents the area under our curve between 0 and the current tokenSupply. 
+
+<img src="https://i.imgur.com/xaIzpTb.jpg" width="400">
+
+*[Slava Balasanov's calculations for setting prices through bonding curves](https://hackernoon.com/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17).*
+
+Then we can derive the PRICE that should be charged for N new tokens:
+
+PRICE = 1/3 * (tokenSupply + N)³ — _LIQUIDITY_POOL_SIZE_
+
+Using this method allows for computing bonding curves based on any power function y=x^p. Taking a simple y=x² function, _LIQUIDITY_POOL_SIZE_ = 1/3 * tokenSupply³, so the reserve ratio formula can be written as:
+
+_RESERVE_RATIO_ = 1/3 * tokenSupply³ / (tokenSupply² * tokenSupply) = 1 / 3
+
+Thus we can look at our quadratic curve as if it defines a token with _RESERVE_RATIO_ of 33.33% (1/3). With Bancor's formula, one can choose any arbitrary curve with reserve ratio between 0 and 100%. A reserve ratio of ½ yields y=x as a curve, and a reserve ratio of ⅔ means a y=sqrt(x) curve.
 
 Child-TCRs can only be made up of content that’s necessarily on the parent list, although they are supposed to have their own focal points. It is a premise that these focal points "fit within" that of the parent list (e.g. a playlist with the best video lessons on how to play cool songs in the harmonica; which has only non-copyright-infringing content).
 
@@ -94,3 +120,6 @@ As [Simon de la Rouviere puts it](https://medium.com/@simondlr/continuous-token-
 Lists with high demand of people wanting to submit to it (because they’re well curated and have their audience) earn revenue for its token holders, since its token raises in value programatically as the number of token holders grow (and vice versa).
 
 Challenges against playlists can also be made, according to the same rationale beforementioned. In the case, the stake to be matched would be that initially deposited to deploy the child-TCR token and playlist. Eventually, when multiple playlists with overlapping objectives coexist, there could even be a way to merge lists and combine stakes to increase the difficulty of challenging a child-TCR and to widen participation on it. 
+
+### Front-running attacks
+Bancor, and bonding curves in general, are famously known for susceptibility to front running: when an agent sees a buy order coming in and "frontruns" it with another order, with more gas, to get ahead of the original one. Once the original order is executed, it means the attacker already sold at a guaranteed profit the tokens just bought. A straightforward solution is to define a limit on gas price exchanges can consume, and encourage agents to always use the maximum allowed price when placing orders.
