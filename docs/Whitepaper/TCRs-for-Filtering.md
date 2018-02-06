@@ -6,7 +6,7 @@ The Foundation states initially two kinds of content it’ll pursue to curb, and
 - Copyright infringing content.
 - Offensive content (as defined by local applicable laws).
 
-If content is excluded from the Paratii TCR, it can’t be included in other listings, as we’ll see below, and thus are “wiped away” from users (although their original blocks may remain and hashes may "work" on IPFS indeterminately).
+If content is excluded from the Paratii TCR, it can’t be included in other listings, as we’ll see below, and stops being "whitelisted" for operating with the system's contracts, thus being “wiped away” from users (although their original blocks may remain and hashes may "work" on IPFS indeterminately).
 
 In general lines, token holders can help curate the list by 1) submitting videos to the registry, 2) challenging applications, 3) voting in face-offs. Anyone is able to read/access the listings even without having any tokens or relationship to the amounts in stake.
 
