@@ -31,32 +31,32 @@ As [Mike Goldin, from AdChain](https://medium.com/@ilovebagels/token-curated-reg
 
 # Key Parameters
 
-##### _MIN_DEPOSIT_
+##### `MIN_DEPOSIT`
 The amount, in PTI tokens, a candidate must lock as a deposit whenever submitting a video, and which must remain "bonded" for the duration of the listing thereafter.
 
-##### _APPLY_STAGE_LEN_
-The duration, in blocks or other defined period (e.g. epoch), during which an application can be challenged. On the original implementation, listing occurs only after the end of this period. The proposal here is to list applicants immediately, and extend the _APPLY_STAGE_LEN_ indefinitely (perpetuating the "challenge window"). Alternatively, we can incorporate cost functions that increase the matching stake required with time once a certain period has passsed and no challenge was made.
+##### `APPLY_STAGE_LEN`
+The duration, in blocks or other defined period (e.g. epoch), during which an application can be challenged. On the original implementation, listing occurs only after the end of this period. The proposal here is to list applicants immediately, and extend the `_APPLY_STAGE_LEN_` indefinitely (perpetuating the "challenge window"). Alternatively, we can incorporate cost functions that increase the matching stake required with time once a certain period has passsed and no challenge was made.
 
-##### _COMMIT_PERIOD_LEN_
+##### `COMMIT_PERIOD_LEN`
 The duration of the "face-off" phase, in blocks or other defined period (e.g. epoch). Period during which token holders can commit votes for a certain challenge.
 
-##### _REVEAL_PERIOD_LEN_
+##### `REVEAL_PERIOD_LEN`
 The duration, in blocks or other defined period (e.g. epoch), during which token holders participating on a face-off can reveal committed votes for a challenge they're taking part of.
 
-##### _CHALLENGER_PCT_
+##### `CHALLENGER_PCT`
 The percentage of the forfeited deposit, in case of a rejected application, after a challenge, which is awarded to the original challenger(s) that triggered the voting round, winning party in the voting round as a dispensation compensating for their capital risk.
 
-##### _VOTERS_PCT_
-The percentage of the forfeited deposit, in case of a rejected application, after a challenge, which is awarded to the winning party in the voting round. The amount "left" for token holders according to their stakes on the list is thus determined by 100% - (_CHALLENGER_PCT_ - _VOTERS_PCT_).
+##### `VOTERS_PCT`
+The percentage of the forfeited deposit, in case of a rejected application, after a challenge, which is awarded to the winning party in the voting round. The amount "left" for token holders according to their stakes on the list is thus determined by 100% - (`CHALLENGER_PCT` - `VOTERS_PCT`).
 
-##### _CHALLENGER_PENALTY_PCT_
-The percentage of the matching stake, by a challenger, that's slashed in case the majority goes against him or the VOTE_QUORUM is not met. In case this penalty occurs, the amount sums up to the staked deposit associated to the listing, making it more costly to challenge, next time.
+##### `CHALLENGER_PENALTY_PCT`
+The percentage of the matching stake, by a challenger, that's slashed in case the majority goes against him or the `VOTE_QUORUM` is not met. In case this penalty occurs, the amount sums up to the staked deposit associated to the listing, making it more costly to challenge, next time.
 
-##### _VOTING_PENALTY_PCT_
+##### `VOTING_PENALTY_PCT`
 The percentage of the tokens staked into face-off voting, by engaged token holders, that's slashed in case they end up in the minority side. Initially, this will be set out to zero.
 
-##### _VOTE_QUORUM_
-The percentage of tokens out of the total tokens commited and revealed in favor of _rejecting_ a challenged candidate that's set as mininum requirement for this candidate to lose listee status. The _VOTE_QUORUM_ does not count non-voting tokens, and unrevealed tokens are considered non-voting. 
+##### `VOTE_QUORUM`
+The percentage of tokens out of the total tokens commited and revealed in favor of _rejecting_ a challenged candidate that's set as mininum requirement for this candidate to lose listee status. The `VOTE_QUORUM` does not count non-voting tokens, and unrevealed tokens are considered non-voting. 
 
 The reference implementation we borrow most of these parameters from is in https://github.com/skmgoldin/tcr.
 
@@ -72,16 +72,16 @@ Users willing to start a Treasured Playlist (which can range from an organisatio
 
 The main parameters its creator defines are:
 
-##### _LIQUIDITY_POOL_SIZE_
-Contains the locked reserve currency (PTI), and, initially, consists by default of the child-TCR's creator _MIN_DEPOSIT_ staked to kickstart the contract. It increases or decreases dynamically according to the demand for the child token. 
+##### `LIQUIDITY_POOL_SIZE`
+Contains the locked reserve currency (PTI), and, initially, consists by default of the child-TCR's creator `MIN_DEPOSIT` staked to kickstart the contract. It increases or decreases dynamically according to the demand for the child token. 
 
-##### _OWNER_PCT_
-The amount of tokens, in percentage of the _tokenSupply_, to be distributed, or pre-minted, to the list's creator.
+##### `OWNER_PCT`
+The amount of tokens, in percentage of the `tokenSupply`, to be distributed, or pre-minted, to the list's creator.
 
-##### _ RESERVE_RATIO_
-The relationship between token price, token supply and _LIQUIDITY_POOL_SIZE_.
+##### `RESERVE_RATIO`
+The relationship between token price, token supply and `LIQUIDITY_POOL_SIZE`.
 
-_RESERVE_RATIO_ = _LIQUIDITY_POOL_SIZE_ / (currentBuyPrice * tokenSupply)
+`RESERVE_RATIO = LIQUIDITY_POOL_SIZE / (currentBuyPrice * tokenSupply)`
 
 Different from the PTI, these token are made nontransferrable, but buyable or redeemable only against the market making contract that initially holds the “staked amount". The market maker establishes a price for buying the token and a “redeeming value” for which it can be “sold” back for PTI - both curves can be the same; they can have a fixed distance; or can have a distance that grows exponentially as more tokens are minted.
 
@@ -89,15 +89,15 @@ Different from the PTI, these token are made nontransferrable, but buyable or re
 
 *[Simon de la Rouviere's representation](https://medium.com/@simondlr/tokens-2-0-curved-token-bonding-in-curation-markets-1764a2e0bee5) of a bonding curve with increasingly distant ceiling and floor prices, used by a market maker.*
 
-At any moment, a token can be redeemed against the market maker for the reserve currency (PTI) according to the _currentRedeemPrice_ curve, and the market maker will burn it, reducing the _totalSupply_.
+At any moment, a token can be redeemed against the market maker for the reserve currency (PTI) according to the `currentRedeemPrice` curve, and the market maker will burn it, reducing the `totalSupply`.
 
-Such price fluctuations present a computational challenge: setting the _currentBuyPrice_ for selling 5 newly minted tokens isn't trivial once the price is supposed to change every time a new token is minted (or even fractions of tokens). The goal of computing the sum of all infinitely small changes in price can be achieved by calculating the area under the bonding curve in question (_currentBuyPrice_ or _currentRedeemPrice_), using integrals.
+Such price fluctuations present a computational challenge: setting the `currentBuyPrice` for selling 5 newly minted tokens isn't trivial once the price is supposed to change every time a new token is minted (or even fractions of tokens). The goal of computing the sum of all infinitely small changes in price can be achieved by calculating the area under the bonding curve in question (`currentBuyPrice` or `currentRedeemPrice`), using integrals.
 
-For example, to find the PTI (_LIQUIDITY_POOL_SIZE_) held by a quadratic bonding curve contract, we calculate the integral of the function defining the current price:
+For example, to find the PTI (`LIQUIDITY_POOL_SIZE`) held by a quadratic bonding curve contract, we calculate the integral of the function defining the current price:
 
-_LIQUIDITY_POOL_SIZE_ = 1/3 * tokenSupply³
+`LIQUIDITY_POOL_SIZE = 1/3 * tokenSupply³`
 
-Which represents the area under our curve between 0 and the current tokenSupply. 
+Which represents the area under our curve between 0 and the current `tokenSupply`. 
 
 <img src="https://i.imgur.com/xaIzpTb.jpg" width="800">
 
@@ -105,13 +105,13 @@ Which represents the area under our curve between 0 and the current tokenSupply.
 
 Then we can derive the PRICE that should be charged for N new tokens:
 
-PRICE = 1/3 * (tokenSupply + N)³ — _LIQUIDITY_POOL_SIZE_
+`PRICE = 1/3 * (tokenSupply + N)³ — LIQUIDITY_POOL_SIZE`
 
-Using this method allows for computing bonding curves based on any power function y=x^p. Taking a simple y=x² function, _LIQUIDITY_POOL_SIZE_ = 1/3 * tokenSupply³, so the reserve ratio formula can be written as:
+Using this method allows for computing bonding curves based on any power function y=x^p. Taking a simple y=x² function, `LIQUIDITY_POOL_SIZE = 1/3 * tokenSupply³`, so the reserve ratio formula can be written as:
 
-_RESERVE_RATIO_ = 1/3 * tokenSupply³ / (tokenSupply² * tokenSupply) = 1 / 3
+`RESERVE_RATIO = 1/3 * tokenSupply³ / (tokenSupply² * tokenSupply) = 1 / 3`
 
-Thus we can look at our quadratic curve as if it defines a token with _RESERVE_RATIO_ of 33.33% (1/3). With Bancor's formula, one can choose any arbitrary curve with reserve ratio between 0 and 100%. A reserve ratio of ½ yields y=x as a curve, and a reserve ratio of ⅔ means a y=sqrt(x) curve.
+Thus we can look at our quadratic curve as if it defines a token with `RESERVE_RATIO` of 33.33% (1/3). With Bancor's formula, one can choose any arbitrary curve with reserve ratio between 0 and 100%. A reserve ratio of ½ yields y=x as a curve, and a reserve ratio of ⅔ means a y=sqrt(x) curve.
 
 Child-TCRs can only be made up of content that’s necessarily on the parent list, although they are supposed to have their own focal points. It is a premise that these focal points "fit within" that of the parent list (e.g. a playlist with the best video lessons on how to play cool songs in the harmonica; which has only non-copyright-infringing content).
 
