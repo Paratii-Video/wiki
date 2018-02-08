@@ -8,7 +8,13 @@ The Foundation states initially two kinds of content it’ll pursue to curb, and
 
 If content is excluded from the Paratii TCR, it can’t be included in other listings, as we’ll see below, and stops being "whitelisted" for operating with the system's contracts, thus being “wiped away” from users (although their original blocks may remain and hashes may "work" on IPFS indeterminately).
 
-In general lines, token holders can help curate the list by 1) submitting videos to the registry, 2) challenging applications, 3) voting in face-offs. Anyone is able to read/access the listings even without having any tokens or relationship to the amounts in stake.
+In general lines, token holders can help curate the list by 
+
+- submitting videos to the registry, 
+- challenging applications, or
+- voting in face-offs. 
+
+Anyone is able to read/access the listings even without having any tokens or relationship to the amounts in stake.
 
 Users are free to submit a video to the registry, along with a deposit stake of PTI. Proposals can be challenged or not, by those willing to 1) keep the list quality high, 2) try to earn a share of the applicant stake, 3) both. Challenges can be made to any new applicant, and also to already listed videos, by any token holder willing to match a MIN_DEPOSIT stake of at least equal value to the amount in stake for that video, at any time. If an application is not challenged, the stake becomes effectively bonded in the candidate’s listing, and can be undone at any time. If challenged, the stake is matched by challenger(s), and a voting round starts, with one vote per token granted for all token holders. After a threshold is crossed, the outcome is determined. 
 
