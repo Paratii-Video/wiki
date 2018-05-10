@@ -1,8 +1,8 @@
 # A Paratii Video Protocol
 
-This document provides a generic protocol for communication and negotiation between nodes in a p2p video distribution network.
+This document contains some ideas for a generic protocol for communication and negotiation between nodes in a p2p video distribution network.
 
-[Basically, the idea is to take my ideas for the advertisement market and  Felipes idea of using the 0x mechanisms a bit further by generalizing the idea and use it for all client-activated requests in the Paratii framework. I'll also try to be a bit more precise about how to handle claims that cannot be resolved onchain (such as "proof-of-view")]
+[Basically, the idea is to take [my ideas for the advertisement market]( https://github.com/Paratii-Video/wiki/wiki/A-market-for-Sybils)  and  [Felipes idea of using the 0x mechanisms](https://medium.com/paratii/what-if-0x-could-be-used-for-decentralised-real-time-bidding-advertising-9fcb733d8e84) a bit further by generalizing the idea and use it for all client-activated requests in the Paratii framework. I'll also try to be a bit more precise about how to handle claims that cannot be resolved onchain (such as "proof-of-view")]
 
 [yeah, work in progress, parts are unreadable, etc]
 
@@ -100,9 +100,7 @@ This is very similar to the transcoding request, except that the `data` field wi
 
 ## `AD_REQUEST` we have a view and would like to insert an Ad before
 
-This is the case of the medium article
-[I changed a lot beause it is @#$#$@ handwaiving on all the details https://medium.com/paratii/what-if-0x-could-be-used-for-decentralised-real-time-bidding-advertising-9fcb733d8e84
-]
+[This is changed a lot from felipe's medium article because it is @#$#$@ handwaiving on all the 43@#$$#@ details :heart: ]
 
 This case is more complex than the previous ones, because it involves a two-step process. First the viewer requests an advertisement (which is the first order), then, after watching it, the viewer submits a "proof of view" with evidence that she has actually watched the ad.
 
