@@ -1,2 +1,0 @@
-# Abstract
-The world of online video is undergoing a radical transformation that blurs the distinction between service providers, value providers and end users. In the present document, we outline a video-on-demand distribution system that leverages recent developments in the fields of peer-to-peer networking and cryptoeconomics to move beyond the model of centralized platforms and to place full revenue control in the hands of content producers.

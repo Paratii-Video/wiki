@@ -1,7 +1,0 @@
-{
-    "plugins": ["mathjax"],
-
-    "structure": {
-        "readme": "Abstract.md"
-    }
-}
