@@ -1,6 +1,6 @@
 ## The Paratii Wiki
 
-Paratii is an open source R&D lab. In our wiki we collect texts and ongoing research in various stages of maturity: [the wiki](https://github.com/Paratii-Video/wiki/wiki).
+Paratii is an open source R&D lab. In our wiki we collect texts and ongoing research in various stages of maturity: [the wiki](https://github.com/Paratii-Video/wiki/wiki/1.-%F0%9F%8F%A0Home).
 
 Most of our relevant research material eventually gets summarised in our [Medium](https://medium.com/paratii).
 
