@@ -2,6 +2,8 @@
 
 Paratii is an open source R&D lab. In our wiki we collect texts and ongoing research in various stages of maturity: [the wiki](https://github.com/Paratii-Video/wiki/wiki/1.-%F0%9F%8F%A0Home).
 
+<img src="https://github.com/Paratii-Video/wiki/blob/master/Gif%20Wiki.gif" width="400" height="200" />
+
 Most of our relevant research material eventually gets summarised in our [Medium](https://medium.com/paratii).
 
 The [portal web app](https://portal.paratii.video/) is an early lab for playing with distribution and monetisation schemes upon IPFS and Ethereum. It's currently in alpha, running on a testnet.
